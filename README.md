@@ -18,3 +18,4 @@ TODO
 - [ ] ownership
 - [ ] for, index
 - [ ] comp function (for auto-wrapping reactive children with effects, instead of jsx)
+- [ ] store
