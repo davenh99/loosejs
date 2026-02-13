@@ -1,21 +1,27 @@
 import { signal, effect } from "../loose.js";
 
 const App = () => {
+  const [val, setVal] = signal(0);
+
   const element = document.createElement("div");
   element.className = "p-5 h-screen";
 
-  // no stuff yet, we will just test tracking of signals properly.
-  const [val, setVal] = signal(0);
+  const btn = document.createElement("button");
+  btn.className = "btn btn-square btn-success";
+  btn.onclick = () => setVal((prev) => prev + 1);
+  btn.textContent = "+";
 
-  // initially, 0 should be logged
+  const displayValue = document.createElement("p");
+  displayValue.className = "input w-9 ml-1";
+  displayValue.textContent = String(val());
+
+  element.appendChild(btn);
+  element.appendChild(displayValue);
+
   effect(() => {
-    console.log(val());
+    // reactive context, will set textContent whenever we call setVal (the button does that)
+    displayValue.textContent = String(val());
   });
-
-  // all of these should be logged
-  setVal(1);
-  setVal((prev) => prev + 1); // increment
-  setVal(10);
 
   return element;
 };
