@@ -7,11 +7,18 @@ A js framework. Using to learn reactivity through signals.
 In the root directory:
 
 ```
-node .\serveExample.js
+npm start
+```
+
+Run tests:
+
+```
+npm test
 ```
 
 TODO
-- [ ] signal, effect
+
+- [x] signal, effect
 - [ ] memo
 - [ ] untrack
 - [ ] batch
